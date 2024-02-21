@@ -10,9 +10,8 @@ namespace WordReplacerTest
         {
             string input = "Это тестовая строка";
             string expectedValue = "Это тестовая стринга";
-            Replacer replacer = new(input);
 
-            string result = replacer.ReplaceSpecificWordWithOtherWord("строка", "стринга");
+            string result = input.ReplaceSpecificWordWithOtherWord("строка", "стринга");
 
             Assert.AreEqual(expectedValue, result);
         }
@@ -22,9 +21,8 @@ namespace WordReplacerTest
         {
             string[] input = { "Это первое предложение", "Это второе предложение" };
             string expectedValue = "Это первое элемент. Это второе элемент";
-            Replacer replacer = new(input);
 
-            string result = replacer.ReplaceSpecificWordWithOtherWord("предложение", "элемент");
+            string result = input.ConcatSentences().ReplaceSpecificWordWithOtherWord("предложение", "элемент");
 
             Assert.AreEqual(expectedValue, result);
         }
@@ -34,8 +32,7 @@ namespace WordReplacerTest
         public void ReplaceWordWithNullValueInput()
         {
             string input = null;
-            Replacer replacer = new(input);
-            replacer.ReplaceSpecificWordWithOtherWord("слово", "словечко");
+            input.ReplaceSpecificWordWithOtherWord("слово", "словечко");
         }
 
         [TestMethod]
@@ -43,8 +40,7 @@ namespace WordReplacerTest
         public void ReplaceWordWithEmptyStringInput()
         {
             string input = "";
-            Replacer replacer = new(input);
-            replacer.ReplaceSpecificWordWithOtherWord("слово", "словечко");
+            input.ReplaceSpecificWordWithOtherWord("слово", "словечко");
         }
     }
 }
