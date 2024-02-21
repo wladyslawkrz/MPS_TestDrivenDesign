@@ -20,11 +20,11 @@ namespace WordReplacerTest
         public void ReplaceWordWithMultilineInput()
         {
             string[] input = { "Это первое предложение", "Это второе предложение" };
-            string expectedValue = "Это первое элемент. Это второе элемент";
+            string[] expectedValue = { "Это первое элемент", "Это второе элемент" };
 
-            string result = input.ConcatSentences().ReplaceSpecificWordWithOtherWord("предложение", "элемент");
+            string[] result = input.ReplaceSpecificWordWithOtherWord("предложение", "элемент");
 
-            Assert.AreEqual(expectedValue, result);
+            Assert.AreEqual(String.Join(". ", expectedValue), String.Join(". ", result));
         }
 
         [TestMethod]

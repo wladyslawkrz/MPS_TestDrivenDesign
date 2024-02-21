@@ -19,9 +19,16 @@
             return result;
         }
 
-        public static string ConcatSentences(this string[] _input)
+        public static string[] ReplaceSpecificWordWithOtherWord(this string[] _input, string wordToReplace, string otherWord)
         {
-            return String.Join(". ", _input);
+            string[] result = new string[_input.Length];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = _input[i].Replace(wordToReplace, otherWord); 
+            }
+
+            return result;
         }
     }
 }
